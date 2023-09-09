@@ -4,14 +4,14 @@ import threading
 import time
 #import subprocess (part of old code)
 
-# Func for pressing keys
+# Func for pressing keysdd
 def press_da_keys(list_of_keys):
     for key in list_of_keys:
         keyboard.press_and_release(key)
         time.sleep(0.25)
 
 # Func for getting mouse coords autoclicker style
-def get_mouse_position(default_x=1569, default_y=90):
+def get_mouse_position(default_x, default_y):
     while True:
         if keyboard.is_pressed('esc'): # SET
             return pyautogui.position()
@@ -41,8 +41,7 @@ header = {
     'code_editor': 'Visual Studio Code'
 }
 
-defX = header["defaultCoords"][0]
-defY = header["defaultCoords"][1]
+defX, defY  = header["defaultCoords"][0], header["defaultCoords"][1]
 pausing_key = 'alt'
 quit_key = 'q'
 
