@@ -2,7 +2,7 @@
 A macro to deal with raygun abusers in the Roblox game Survive and Kill the Killers in Area 51 !!! (id = 155382109)
 Basically, when your character resets, they do not get any points. 
 
-To run this code you'll need to install Python and some libraries.
+To run this code you'll need to install the latest Python and some libraries. DO NOT RUN WITH PYTHON IDLE.
 Open up the cmd prompt and enter these commands:
 pip install pyautogui
 pip install keyboard
