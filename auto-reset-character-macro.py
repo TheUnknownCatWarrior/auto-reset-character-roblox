@@ -8,6 +8,7 @@ import time
 def press_da_keys(list_of_keys):
     for key in list_of_keys:
         keyboard.press_and_release(key)
+        time.sleep(0.25)
 
 # Func for getting mouse coords autoclicker style
 def get_mouse_position(default_x=1569, default_y=90):
@@ -47,15 +48,15 @@ quit_key = 'q'
 
 # User interface
 print(f'----- Starting reset character macro -----\nVersion {header["version"]}\n\n\n')
-# Ask the user to set the pixel to detect on the roblox window, defaults are for using powertoys.
+# Ask the user to set the pixel to detect on the Roblox window, defaults are for using power toys.
 print('Setting detection area: put mouse on the pixel to delect\nPress [ESC] to SET | [ESC] to take DEFAUL\nDefault coords:', f'Xpos={defX} Ypos={defY}')
 mousePOS = get_mouse_position(defX, defY)
-print(f'Sucess! Your detection area has been set to Xpos={defX} Ypos={defY} | type = {"default" if (mousePOS[0] == defX) and mousePOS[1] == defY else "set_by_user"}\n\n')
+print(f'Sucess! Your detection area has been set to Xpos={defX if mousePOS[0] == defX else mousePOS[0]} Ypos={defY if mousePOS[1] == defY else mousePOS[1]} | type = {"default" if (mousePOS[0] == defX) and mousePOS[1] == defY else "set_by_user"}\n\n')
 
-# Define the RGB value of the red color in health bar
+# Define the RGB value of the red color in the health bar
 death = (230, 137, 7)
 
-# Let the user quit, pause the porgram when want to play with low health
+# Let the user quit, and pause the program when wants to play with low-health
 pause_or_exit_thread = threading.Thread(target=pause_or_exit).start()
 
 # The rest of your code
@@ -70,10 +71,10 @@ while True:
         # Check the color of the pixel at (x, y)
         pixel_color = pyautogui.pixel(mousePOS[0], mousePOS[1])
         print(f'detecting health bar status, press {pausing_key} to pause and {quit_key} to exit')
-        time.sleep(1)
+        time.sleep(.25)
         # If the color is red or close to red, reset the character
         if pyautogui.pixelMatchesColor(mousePOS[0], mousePOS[1], death, tolerance=50):
             print('resetting character')
             press_da_keys(['esc', 'r', 'enter'])
             # subprocess.call("C:\Users\doe\Downloads\reset-character.ahk".replace('\\', '\\\\'), shell=True)
-            time.sleep(1)
+            time.sleep(.25)
